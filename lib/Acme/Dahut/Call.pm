@@ -1,7 +1,7 @@
 package Acme::Dahut::Call;
 use strict;
 use Moose;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 has calls => (
     isa        => 'ArrayRef',
@@ -18,6 +18,8 @@ has calls => (
                 'DAHUUT!!',         'A THUD!',
                 'AD HUT!',          'HAT DU!',
                 'AT HUD!',          '-.. .- .... ..- -',
+                'DAHUUUUT!',        'DAAAHUUT',
+                'DAHUT?'
             )
         ];
     },
@@ -32,20 +34,20 @@ has actions => (
             (
                 'hides from the chaotic noise',
                 'topples down the mountain',
+                'scurries around in circles',
             )
         ];
     },
 );
 
 sub call {
-    my $self = shift;
+    my $self  = shift;
     my @calls = $self->calls;
     return @calls[ rand scalar @calls ];
 }
 
-
 sub action {
-    my $self = shift;
+    my $self    = shift;
     my @actions = $self->actions;
     return @actions[ rand scalar @actions ];
 }
